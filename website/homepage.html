@@ -1,0 +1,664 @@
+<!-- Phông viết tay cho tên thương hiệu và tiêu đề -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&amp;display=swap">
+
+<style>
+/* Thiết lập chung */
+#hn-bags {
+  --navy: #19334f;
+  --cream: #faf7f1;
+  --blue: #e0ecf3;
+  --gold: #c69c53;
+  width: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font: 16px/1.7 Arial, Helvetica, sans-serif;
+}
+#hn-bags,
+#hn-bags * {
+  box-sizing: border-box;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+}
+#hn-bags h1,
+#hn-bags h2,
+#hn-bags h3,
+#hn-bags p {
+  margin: 0 0 16px;
+  color: inherit;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#hn-bags a {
+  color: inherit;
+  text-decoration: none;
+}
+#hn-bags a:hover { text-decoration: underline; }
+#hn-bags a:focus-visible,
+#hn-bags summary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+#hn-bags img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+#hn-bags section { scroll-margin-top: 24px; }
+#hn-bags .hn-wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 28px;
+}
+
+/* Dòng thông báo */
+#hn-bags .hn-note {
+  padding: 9px 16px;
+  background: var(--blue);
+  text-align: center;
+  font-size: 13px;
+}
+
+/* Đầu trang */
+#hn-bags .hn-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+#hn-bags .hn-logo {
+  font-family: "Charm", "Segoe Print", cursive !important;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+#hn-bags .hn-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+#hn-bags .hn-menu a { font-size: 15px; }
+
+/* Banner */
+#hn-bags .hn-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  background: #eee6d9;
+}
+#hn-bags .hn-hero-text { padding: 56px 36px; }
+#hn-bags .hn-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+}
+#hn-bags #hn-heading {
+  font-family: "Charm", "Segoe Print", cursive !important;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+#hn-bags .hn-tagline {
+  font-size: 24px;
+  font-style: italic;
+}
+#hn-bags .hn-hero img {
+  height: auto;
+  max-height: 560px;
+  object-fit: contain;
+}
+#hn-bags .hn-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 24px;
+  background: var(--navy);
+  color: #fff;
+}
+
+/* Sản phẩm */
+#hn-bags .hn-products {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+#hn-bags .hn-title {
+  font-family: "Charm", "Segoe Print", cursive !important;
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+#hn-bags .hn-subtitle {
+  margin-bottom: 30px;
+  text-align: center;
+}
+#hn-bags .hn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+#hn-bags .hn-card {
+  min-width: 0;
+  border: 1px solid #e4ddd2;
+  background: #fffdf9;
+}
+#hn-bags .hn-card img {
+  aspect-ratio: 1 / 1.1;
+  object-fit: contain;
+  background: #f0ebe4;
+}
+#hn-bags .hn-card-body { padding: 20px; }
+#hn-bags .hn-card h3 {
+  font-size: 20px;
+  line-height: 1.5;
+}
+#hn-bags .hn-card p { font-size: 14px; }
+#hn-bags .hn-price {
+  font-size: 22px;
+  font-weight: 700;
+}
+#hn-bags details {
+  margin-top: 14px;
+  font-size: 14px;
+}
+#hn-bags summary {
+  cursor: pointer;
+  text-decoration: underline;
+}
+#hn-bags details p { margin-top: 12px; }
+
+/* Ưu điểm */
+#hn-bags .hn-benefits {
+  padding: 36px 0;
+  background: var(--blue);
+}
+#hn-bags .hn-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  text-align: center;
+}
+#hn-bags .hn-benefit-grid h3 { font-size: 21px; }
+#hn-bags .hn-icon {
+  color: #947033;
+  font-size: 34px;
+}
+
+/* Giới thiệu */
+#hn-bags .hn-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+#hn-bags .hn-about-text { padding: 44px 32px; }
+#hn-bags .hn-about h2 {
+  font-size: 32px;
+  line-height: 1.4;
+}
+#hn-bags .hn-about img {
+  height: 440px;
+  object-fit: contain;
+  background: #eee6dc;
+}
+
+/* Liên hệ */
+#hn-bags .hn-contact {
+  padding: 44px 24px;
+  border-top: 1px solid #e4ddd2;
+  text-align: center;
+}
+#hn-bags .hn-contact h2 { font-size: 28px; }
+
+/* Chân trang: thương hiệu trái, mạng xã hội phải */
+#hn-bags .hn-footer {
+  padding: 26px 0;
+  background: #182e49;
+  color: #fff;
+}
+#hn-bags .hn-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+#hn-bags .hn-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#hn-bags .hn-flower {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  color: #dfbb72;
+}
+#hn-bags .hn-footer-name {
+  display: block;
+  font-family: "Charm", "Segoe Print", cursive !important;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+#hn-bags .hn-footer p {
+  margin: 0;
+  font-size: 12px;
+}
+#hn-bags .hn-socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding-left: 24px;
+  border-left: 1px solid #ffffff40;
+}
+#hn-bags .hn-socials span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 28px;
+}
+#hn-bags .hn-socials svg {
+  width: 20px;
+  height: 20px;
+}
+#hn-bags .hn-facebook {
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+}
+#hn-bags .hn-demo {
+  margin-top: 18px;
+  font-size: 11px;
+  color: #d4deea;
+  text-align: center;
+}
+
+/* Máy tính bảng */
+@media (max-width: 900px) {
+  #hn-bags .hn-header { flex-direction: column; }
+  #hn-bags .hn-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #hn-bags .hn-hero-text { padding: 32px 24px; }
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+  #hn-bags .hn-wrap {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  #hn-bags .hn-menu { gap: 14px; }
+  #hn-bags .hn-hero,
+  #hn-bags .hn-about,
+  #hn-bags .hn-benefit-grid,
+  #hn-bags .hn-grid {
+    grid-template-columns: 1fr;
+  }
+  #hn-bags .hn-about-text { padding: 32px 24px; }
+  #hn-bags .hn-about img { height: 320px; }
+  #hn-bags .hn-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #hn-bags .hn-socials {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+</style>
+
+<div id="hn-bags">
+  <div class="hn-note">✦ Thanh lịch trong từng lựa chọn ✦</div>
+
+  <header class="hn-header hn-wrap">
+    <a class="hn-logo" href="#hn-bags">Hồng Ngọc Bags</a>
+
+    <nav class="hn-menu" aria-label="Điều hướng trang">
+      <a href="#hn-bags">Trang chủ</a>
+      <a href="#hn-products">Bộ sưu tập</a>
+      <a href="#hn-about">Giới thiệu</a>
+      <a href="#hn-contact">Liên hệ</a>
+    </nav>
+  </header>
+
+  <!-- Banner: ảnh số 1 -->
+  <section class="hn-hero" aria-labelledby="hn-heading">
+    <div class="hn-hero-text">
+      <p class="hn-eyebrow">HỒNG NGỌC · TÚI XÁCH NỮ</p>
+
+      <h1 id="hn-heading">Túi xách<br>thanh lịch</h1>
+
+      <p class="hn-tagline">Điểm nhấn mỗi ngày</p>
+
+      <p>
+        Khám phá những thiết kế túi xách tinh tế,
+        hiện đại và dễ phối đồ với mức giá dưới 300.000đ.
+        Thêm một điểm nhấn xinh xắn cho mỗi ngày của bạn.
+      </p>
+
+      <a class="hn-button" href="#hn-products">
+        Khám phá bộ sưu tập →
+      </a>
+    </div>
+
+    <img src="https://i.pinimg.com/736x/fe/30/14/fe30141d380f48411f1c77fca02f76f3.jpg" alt="Hình ảnh giới thiệu bộ sưu tập túi xách">
+  </section>
+
+  <section class="hn-products hn-wrap" id="hn-products">
+    <h2 class="hn-title">Sản phẩm nổi bật</h2>
+
+    <p class="hn-subtitle">
+      Phong cách thanh lịch, giá cả dễ thương — tất cả dưới 300.000đ.
+    </p>
+
+    <div class="hn-grid">
+
+      <!-- Sản phẩm 1: ảnh số 2 -->
+      <article class="hn-card">
+        <img src="https://i.pinimg.com/1200x/32/b6/71/32b67126760b68268ab90491bd79b24d.jpg" alt="Ảnh minh họa bộ sưu tập Pastel" loading="lazy">
+
+        <div class="hn-card-body">
+          <h3>Pastel Collection</h3>
+          <p>Cảm hứng nhẹ nhàng cho phong cách mỗi ngày.</p>
+
+          <div class="hn-price">189.000đ</div>
+
+          <details>
+            <summary>Xem chi tiết</summary>
+            <p>
+              Gợi ý kết hợp cùng trang phục dạo phố
+              để tạo điểm nhấn trẻ trung.
+              Tên và giá là dữ liệu minh họa.
+            </p>
+            <a href="#hn-contact">Thông tin liên hệ →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- Sản phẩm 2: ảnh số 3 -->
+      <article class="hn-card">
+        <img src="https://i.pinimg.com/736x/d6/d4/c8/d6d4c820c08e21a35d5b3d0ec67f5cf4.jpg" alt="Ảnh minh họa bộ sưu tập Classic" loading="lazy">
+
+        <div class="hn-card-body">
+          <h3>Classic Collection</h3>
+          <p>Gợi ý thanh lịch cho những ngày đến công sở.</p>
+
+          <div class="hn-price">279.000đ</div>
+
+          <details>
+            <summary>Xem chi tiết</summary>
+            <p>
+              Cảm hứng phối đồ cùng áo sơ mi,
+              quần âu hoặc váy thanh lịch.
+              Tên và giá là dữ liệu minh họa.
+            </p>
+            <a href="#hn-contact">Thông tin liên hệ →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- Sản phẩm 3: ảnh số 4 -->
+      <article class="hn-card">
+        <img src="https://i.pinimg.com/736x/ed/af/29/edaf29665bf3e8a35bcb11e3b0d341d5.jpg" alt="Ảnh minh họa bộ sưu tập Everyday" loading="lazy">
+
+        <div class="hn-card-body">
+          <h3>Everyday Collection</h3>
+          <p>Đồng hành cùng phong cách thường ngày.</p>
+
+          <div class="hn-price">229.000đ</div>
+
+          <details>
+            <summary>Xem chi tiết</summary>
+            <p>
+              Một gợi ý phụ kiện cho những buổi
+              đi học, gặp gỡ bạn bè và dạo phố.
+              Tên và giá là dữ liệu minh họa.
+            </p>
+            <a href="#hn-contact">Thông tin liên hệ →</a>
+          </details>
+        </div>
+      </article>
+
+      <!-- Sản phẩm 4: ảnh số 5 -->
+      <article class="hn-card">
+        <img src="https://i.pinimg.com/736x/af/a9/cd/afa9cd25b35ab144ba8f86a9f4b1a3c2.jpg" alt="Ảnh minh họa bộ sưu tập Sweet" loading="lazy">
+
+        <div class="hn-card-body">
+          <h3>Sweet Collection</h3>
+          <p>Điểm nhấn ngọt ngào cho những cuộc hẹn.</p>
+
+          <div class="hn-price">159.000đ</div>
+
+          <details>
+            <summary>Xem chi tiết</summary>
+            <p>
+              Gợi ý phong cách nữ tính để kết hợp
+              cùng trang phục yêu thích.
+              Tên và giá là dữ liệu minh họa.
+            </p>
+            <a href="#hn-contact">Thông tin liên hệ →</a>
+          </details>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="hn-benefits" aria-label="Cảm hứng bộ sưu tập">
+    <div class="hn-wrap hn-benefit-grid">
+      <div>
+        <div class="hn-icon" aria-hidden="true">◇</div>
+        <h3>Phong cách tinh tế</h3>
+        <p>Khám phá nét đẹp trong từng lựa chọn phụ kiện.</p>
+      </div>
+
+      <div>
+        <div class="hn-icon" aria-hidden="true">✧</div>
+        <h3>Giá cả dễ thương</h3>
+        <p>Bộ sưu tập với giá minh họa dưới 300.000đ.</p>
+      </div>
+
+      <div>
+        <div class="hn-icon" aria-hidden="true">♡</div>
+        <h3>Dấu ấn riêng</h3>
+        <p>Thể hiện cá tính qua chiếc túi bạn yêu thích.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Giới thiệu: ảnh số 6 -->
+  <section class="hn-about" id="hn-about">
+    <div class="hn-about-text">
+      <p class="hn-eyebrow">Câu chuyện Hồng Ngọc</p>
+
+      <h2>Đồng hành cùng<br>phong cách của bạn</h2>
+
+      <p>
+        Hồng Ngọc Bags là website giới thiệu túi xách
+        và những ý tưởng phối đồ mang phong cách
+        hiện đại, thanh lịch và gần gũi.
+      </p>
+
+      <p>
+        Mỗi chiếc túi là một điểm nhấn nhỏ,
+        giúp bạn tự tin thể hiện phong cách riêng
+        trong những khoảnh khắc hằng ngày.
+      </p>
+
+      <a class="hn-button" href="#hn-products">
+        Xem bộ sưu tập →
+      </a>
+    </div>
+
+    <img src="https://i.pinimg.com/736x/dd/52/6c/dd526cfeda2e19b24cefd905445ea5d2.jpg" alt="Cảm hứng thời trang túi xách" loading="lazy">
+  </section>
+
+  <section class="hn-contact" id="hn-contact">
+    <h2>Liên hệ Hồng Ngọc</h2>
+    <p>Khám phá bộ sưu tập và lựa chọn phong cách bạn yêu thích.</p>
+    <p>Thông tin liên hệ sẽ được cập nhật.</p>
+  </section>
+
+  <footer class="hn-footer">
+    <div class="hn-wrap hn-footer-inner">
+      <div class="hn-footer-brand">
+
+        <!-- Biểu tượng hoa nét vàng -->
+        <svg class="hn-flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <path d="M32 44C19 34 21 20 32 8C43 20 45 34 32 44Z"></path>
+          <path d="M32 44C17 43 9 33 9 20C22 22 30 30 32 44Z"></path>
+          <path d="M32 44C47 43 55 33 55 20C42 22 34 30 32 44Z"></path>
+          <path d="M32 44C17 50 8 44 4 34C17 32 26 36 32 44Z"></path>
+          <path d="M32 44C47 50 56 44 60 34C47 32 38 36 32 44Z"></path>
+          <path d="M32 44V57M20 56C27 52 37 52 44 56"></path>
+        </svg>
+
+        <div>
+          <strong class="hn-footer-name">Hồng Ngọc Bags</strong>
+          <p>Website giới thiệu sản phẩm · Dự án sinh viên</p>
+        </div>
+      </div>
+
+      <!-- Biểu tượng trang trí, chưa gắn tài khoản mạng xã hội -->
+      <div class="hn-socials" role="group" aria-label="Biểu tượng mạng xã hội minh họa">
+
+        <span class="hn-facebook" role="img" aria-label="Facebook">f</span>
+
+        <span role="img" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+          </svg>
+        </span>
+
+        <span role="img" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor"></rect>
+            <path d="M10 9L16 12L10 15Z" fill="#182e49"></path>
+          </svg>
+        </span>
+
+        <span role="img" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 3V15.5A4 4 0 1 1 10 11.5"></path>
+            <path d="M14 3C14 6.5 17 8 20 8"></path>
+          </svg>
+        </span>
+
+      </div>
+    </div>
+
+    <div class="hn-demo">
+      Tên và giá sản phẩm là dữ liệu minh họa.
+    </div>
+  </footer>
+</div>
+<style>
+/* Mở rộng nội dung riêng trang túi xách */
+body:has(#hn-bags) .wp-block-post-content {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body:has(#hn-bags) #hn-bags {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Bỏ đầu và chân trang mặc định đang bị trùng */
+body:has(#hn-bags) .wp-site-blocks > header,
+body:has(#hn-bags) .wp-site-blocks > footer {
+  display: none !important;
+}
+
+/* Bỏ tiêu đề và giảm khoảng trắng phía trên */
+body:has(#hn-bags) .wp-block-post-title {
+  display: none !important;
+}
+
+body:has(#hn-bags) .wp-site-blocks,
+body:has(#hn-bags) .wp-site-blocks > main {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Gỡ giới hạn chiều rộng của các khung chứa trang */
+body:has(#hn-bags) main:has(#hn-bags),
+body:has(#hn-bags) .wp-block-group:has(#hn-bags) {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Giữ tên thương hiệu và menu nằm ngang trên máy tính */
+@media (min-width: 901px) {
+  #hn-bags .hn-logo {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  #hn-bags .hn-menu {
+    flex-wrap: nowrap;
+  }
+
+  #hn-bags .hn-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+}
+</style>
+<style>
+/* Trải giao diện ngang màn hình trên laptop */
+@media (min-width: 1024px) {
+  body:not(.wp-admin) #hn-bags {
+    width: calc(100vw - 24px) !important;
+    max-width: none !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 !important;
+  }
+
+  #hn-bags .hn-header {
+    flex-direction: row !important;
+    justify-content: space-between;
+  }
+
+  #hn-bags .hn-logo {
+    white-space: nowrap;
+    font-size: 40px;
+  }
+
+  #hn-bags .hn-menu {
+    flex-wrap: nowrap !important;
+  }
+
+  /* Chữ bên trái, ảnh bên phải */
+  #hn-bags .hn-hero {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) !important;
+  }
+
+  #hn-bags .hn-hero-text {
+    min-width: 0;
+    padding: 48px 40px;
+  }
+
+  #hn-bags #hn-heading {
+    font-size: 60px !important;
+  }
+
+  /* Bốn sản phẩm trên cùng một hàng */
+  #hn-bags .hn-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+</style>
+<style></style>
