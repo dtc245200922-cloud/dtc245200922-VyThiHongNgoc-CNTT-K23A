@@ -1,0 +1,17 @@
+# Mật khẩu và cấu hình thực tế
+.env
+.env.*
+!.env.example
+mysql-exporter.cnf
+init.sql
+
+# Sao lưu và dữ liệu
+backup/
+backups/
+data/
+*.sql.gz
+*.dump
+*.log
+
+# Khóa riêng
+*.key

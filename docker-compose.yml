@@ -1,0 +1,42 @@
+services:
+  wordpress:
+    image: wordpress:php8.2-apache
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:?Chua cau hinh WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: wpdb
+    networks:
+      - app-network
+      - db-network
+    depends_on:
+      - mysql
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Chua cau hinh MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD:?Chua cau hinh WORDPRESS_DB_PASSWORD}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - db-network
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
+
+  db-network:
+    driver: bridge
+    internal: true
+
+volumes:
+  mysql-data:
