@@ -1,0 +1,5 @@
+[client]
+user=exporter
+password=CHANGE_ME_EXPORTER_PASSWORD
+host=mysql
+port=3306

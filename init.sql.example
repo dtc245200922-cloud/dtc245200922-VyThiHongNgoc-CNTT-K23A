@@ -1,0 +1,10 @@
+-- Thay mật khẩu bên dưới trước khi chạy lần đầu.
+-- Phải trùng với password trong mysql-exporter.cnf.
+CREATE USER IF NOT EXISTS 'exporter'@'%'
+IDENTIFIED BY 'CHANGE_ME_EXPORTER_PASSWORD';
+
+GRANT PROCESS, REPLICATION CLIENT, SELECT
+ON *.*
+TO 'exporter'@'%';
+
+FLUSH PRIVILEGES;

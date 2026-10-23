@@ -4,7 +4,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: mysql:3306
       WORDPRESS_DB_USER: wpuser
-      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:?Chua cau hinh WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_PASSWORD: wppass
       WORDPRESS_DB_NAME: wpdb
     networks:
       - app-network
@@ -18,16 +18,107 @@ services:
   mysql:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Chua cau hinh MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: wpdb
       MYSQL_USER: wpuser
-      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD:?Chua cau hinh WORDPRESS_DB_PASSWORD}
+      MYSQL_PASSWORD: wppass
     volumes:
       - mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - db-network
     security_opt:
       - no-new-privileges:true
+    restart: unless-stopped
+
+  # Cấu hình còn lại của phpMyAdmin nằm trong file override
+  phpmyadmin:
+    networks:
+      - db-network
+    security_opt:
+      - no-new-privileges:true
+
+  mysql-exporter:
+    image: prom/mysqld-exporter:latest
+    command:
+      - "--config.my-cnf=/cfg/.my.cnf"
+    volumes:
+      - ./mysql-exporter.cnf:/cfg/.my.cnf:ro
+    networks:
+      - db-network
+      - monitoring
+    depends_on:
+      - mysql
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    user: "65534:65534"
+    ports:
+      - "127.0.0.1:9190:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - monitoring
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    user: "472"
+    ports:
+      - "127.0.0.1:3100:3000"
+    environment:
+      GF_USERS_ALLOW_SIGN_UP: "false"
+      GF_AUTH_ANONYMOUS_ENABLED: "false"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    command:
+      - "--path.rootfs=/host"
+    pid: host
+    volumes:
+      - /:/host:ro
+    networks:
+      - monitoring
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  cadvisor:
+    image: ghcr.io/google/cadvisor:0.55.1
+    privileged: true
+    ports:
+      - "127.0.0.1:8181:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /dev/disk:/dev/disk:ro
+    devices:
+      - /dev/kmsg:/dev/kmsg
+    networks:
+      - monitoring
     restart: unless-stopped
 
 networks:
@@ -38,5 +129,10 @@ networks:
     driver: bridge
     internal: true
 
+  monitoring:
+    driver: bridge
+
 volumes:
   mysql-data:
+  grafana-data:
+  prometheus-data:
